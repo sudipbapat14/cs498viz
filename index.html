@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+<meta charset="utf-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src='js/uikit.min.js'></script>
+  <script src='js/sticky.min.js'></script>
+  <link href="css/sticky.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/scrollama.css" rel="stylesheet" type="text/css" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="css/main.css" rel="stylesheet" type="text/css" />
+  <link href="css/d3.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet"> 
+  <script type="text/javascript">
+
+  function detectIE() {
+  var ver;
+    var isChromium = window.chrome;
+var winNav = window.navigator;
+var vendorName = winNav.vendor;
+var isOpera = typeof window.opr !== "undefined";
+var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
+var isIOSChrome = winNav.userAgent.match("CriOS");
+
+if (isIOSChrome) {
+   // is Google Chrome on IOS
+} else if(
+  isChromium !== null &&
+  typeof isChromium !== "undefined" &&
+  vendorName === "Google Inc." &&
+  isOpera === false &&
+  isIEedge === false
+) {
+   // is Google Chrome
+   ver ="chrome";
+} else { 
+   // not Google Chrome 
+   ver ="not chrome";
+	var x = document.getElementById("about");
+	var y = document.getElementById("viz");
+	var z = document.getElementById("alert");
+	var b = document.getElementById("aboutbutton");
+	x.style.display = "none";
+   y.style.display = "none";
+   z.style.display="block";
+   b.style.display="none";
+   
+}
+    // other browser
+    
+}	
+
+
+</script>
+  <script>
+	function toggleAbout() {
+    var x = document.getElementById("about");
+	var y = document.getElementById("viz");
+	
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+	
+	if (y.style.display === "none") {
+        y.style.display = "block";
+    } else {
+        y.style.display = "none";
+    }
+	
+	document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+	
+}
+
+
+</script>
+  
+  <style>
+  .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+  </style>
+  
+</head>
+
+<body onLoad="detectIE()">
+
+
+
+
+<div class="container" id="container">    
+
+<div class="jumbotron">
+<p> 
+	<i class="fa fa-dribbble pull-left" style="font-size:14px;color:orange"></i>
+	<i class="fa fa-dribbble pull-left" style="font-size:34px;color:orange"></i>
+	<i class="fa fa-dribbble pull-left" style="font-size:54px;color:orange"></i>
+	<i class="fa fa-dribbble pull-left" style="font-size:74px;color:orange"></i>
+</p>
+  <br>
+  
+  <h2>Basketball - A quest for the shortest rebounder.</h2>
+  <center>
+  <p><h5>(Best viewed in full screen)</h5></p>
+  <br>
+  <button onclick="toggleAbout()" id="aboutbutton">About</button>
+  </center>
+</div>
+
+<div class="alert alert-danger" style="display:none" id="alert">
+  <strong>Unsupported Browser!!!</strong> Sorry! This visualization does not support your browser -  Please use Google Chrome.
+</div>
+
+<div class="row" id="about" style="display:none">
+
+
+<div class = "col-sm-12">
+<i class="fa fa-times pull-right" style="font-size:24px;" onclick="toggleAbout()"></i>
+	
+	<h4>Goal</h4> 
+      <p>This narrative visualization presents a quest to find the shortest heighted rebounder in the game of basketball during 2016-2017 regular NBA season. It follows a vertically scrollable <strong>interactive slideshow</strong> structure, 
+	  starting with an overview mix of all 486 players that played in the season. As viewer scrolls down the slides transition to the next scenes on the right section of the page with description on the left. When viewer reaches at the end of the page the story concludes. </h4>
+      </p>
+       </br>
+      </br>
+	<h4>Scenes</h4>
+      <p>As viewer scrolls down, the scene opens by displaying a mix of all 486 players that played the 2016-2017 NBA season. One scene is transitioned to the next via vertical scroll event.
+	   In each of the scenes, the overview scene is updated as described in the visualization thereby maintaining a visual consistancy.    
+      <p>The scene template consists of a left panel taking about 25% of the space, and a right panel taking 75% of the screen space.  
+	  The vertically scrolling left section displays a narrative text about the visualization being updated on the right side. The template provides a <strong>consistent navigation experience</strong> that is the key element to convey the intended information.
+	  </p>
+      </br>
+      </br>
+
+       <h4>Annotations</h4>
+      <p>Charts within the scenes use static annotations that bring attention to the user on some interesting facts displayed on it.
+	  For example, chart that displays "the tallest players colleting more rebouts per game" uses annotations to display tall player names. The concluding scene also displayes player's pic to annotate information.
+	  </p>
+	 
+      </br>
+      </br>
+      
+      <h4>Parameters</h4>
+      <p>Visualization uses a unique verticle scroll experience. The screen is divided into different verticle scroll sections that work as a parameter.
+	  As viewer reaches a particular scroll section, corrosponding chart on the right is updated and filters certain data or adds new annotations etc.
+	  </p> For example, after overview scene, as user scrolls down to see the next scene, the scrolled section is used as a parameter to filter data, add new annotations to provide a consistent user experience as described by the chart description. 
+	  
+      </br>
+      </br>
+			
+	<h4>Triggers</h4>
+      <p>Verticle scroll is the main trigger event that changes parameters, updates annotations and transitions scene from one narrative to the next.
+		For example, when user scrolls down from introductory overview scene to the next scroll section, scroll event is triggered and parameters like player id , player name are passed to filter the data and update the chart on the screen.  </p>
+      </br>
+      </br>
+      
+
+      <h4>References</h4>
+      <p>Data & related information is obtained from:</p>
+
+      <ul class="list-group">
+        <li>http://stats.nba.com/</li>
+       
+      </ul>
+
+      </br>
+      </br>
+
+      <h4>Technical References</h4>
+      <p>Technical information for this site was obtained from the following sites:</p>
+
+      <ul class="list-group">
+        <li>https://d3js.org/</li>
+        <li>https://bl.ocks.org</li>
+        <li>https://github.com</li>
+        <li>https://www.w3schools.com/bootstrap/</li>
+      </ul>
+
+      </br>
+      </br>
+	  <p>
+	  <center>
+		 <button onclick="toggleAbout()">Close & View the Narrative</button>	
+		</center>
+	</p>
+</div>
+
+
+</div>
+
+<div id="viz">
+    <div class="col-sm-12 text main-text">
+	<p><strong>Overview</strong></p>
+    <p>In the game of basketball, the sharp shooters and double-figure scorers are the main attraction of the game. Another important aspect of the game is "rebounds".</p>
+    <p>Every team is relying on those who are able to get a lot of rebounds - in order to renew the clock shot after a missed shot or prevent from the opponent having a second chance to score.</p>
+    <p>Naturally the tallest players in the forward and center positions are responsible for grabbing the most rebounds for their teams. But there is always an occasional shortie with an aptitude for rebounds.</p>
+    <p>Looking at NBA stats for the past Regular Season (2016-2017), this visualization tries to indentify who was the shortest player to get the most rebounds last year.</p>
+    
+	<br>
+	<p><strong>Lets start by throwing in our mix all 486 players that played the 2016-2017 NBA Regular Season.</BR> 
+		<br>
+		<br>
+		(keep scrolling down) 
+		
+		<p><i class="fa fa-caret-down" style="font-size:36px"></i></p>
+		<p><i class="fa fa-caret-down" style="font-size:36px"></i></p>
+		<p><i class="fa fa-caret-down" style="font-size:36px"></i></p>
+		
+	<p>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-4">
+		<div class="step" id="all-players">
+			<span class="step text step-text" id="intermediate"></p>
+        </div>
+        <div class="step" id="with-pos">
+			<p class="text step-text">
+				NBA stats database doesn't offer position information for a handful of players. Let's remove them from our final dataset.
+			<br>
+				<i class="fa fa-caret-down" style="font-size:36px"></i>
+			</p>			
+          </div>
+		  
+          <div class="step" id="over-12-mpg">
+			<p class="text step-text">
+				<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+					Also, to consider only those who had a significant contribution to their team's game, Let's keep only those who played 12 minutes and over (that is at least one full quarter) per game.
+				<br>
+				<i class="fa fa-caret-down" style="font-size:36px"></i>		  
+			</p>
+				
+          </div>
+		  
+          <div class="step" id="scatter">
+            <p class="text step-text">
+				<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+				Now let's arrange our 360 remaining NBA players according to their Height and RPG (Rebounds per game).
+				<br>
+				<i class="fa fa-caret-down" style="font-size:36px"></i>		  
+				
+				</p>
+          </div>
+          <div class="step" id="conference">
+            <p class="text step-text">
+			<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+			Rebound skills are equally distributed between the <span class="east-conf">East</span> and the <span class="west-conf">West</span> Conferences.
+			<br>
+			<i class="fa fa-caret-down" style="font-size:36px"></i>		  
+		
+			</p>
+			
+          </div>
+          <div class="step" id="division">
+            <p class="text step-text">
+			<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+			On the other hand, the <span class="div-se">Southeastern</span>, the <span class="div-pac">Pacific</span> and the <span class="div-nw">Northwestern</span> Divisions have the top-3 rebounders, while the <span class="div-atl">Atlantic</span> and the <span class="div-ctl">Central</span> Divisions have the two tallest players.
+			<br>
+			<i class="fa fa-caret-down" style="font-size:36px"></i>		  
+				
+			</p>
+          </div>
+          <div class="step" id="scatter-highest">
+            <p class="text step-text">
+			<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+			Naturally, <span class="active-player">the tallest players</span> are collecting more rebounds per game.
+			<br>
+			<i class="fa fa-caret-down" style="font-size:36px"></i>		  
+				
+			</p>
+          </div>
+          <div class="step" id="scatter-russell">
+            <p class="text step-text">
+			
+			<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+			And there is of course <span class="active-player">Russell Westbrook</span>, who at 6'3" he grabbed 10.7 rebounds per game last year in over 34 minutes per game in 81 games with Oklahoma City Thunders. We will not include him in our quest for the shortest rebounder, because... he's Russell Westbrook, he's an outlier by his own right.
+			<br>
+			<i class="fa fa-caret-down" style="font-size:36px"></i>		  
+				
+			
+			</p>
+          </div>
+          <div class="step" id="scatter-shortest">
+            <p class="text step-text">
+			<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+			
+			Therefore this guy is the shortest player who got the most rebounds per game. He's <span class="active-player">Avery Bradley</span> and last year he played for the Boston Celtics. With 6'4" height, he got 6.1 rebounds per game in 55 games played. This year he plays for the Detroit Pistons where he only receives 2.4 RPG in 28 Games Played (as of December 16).
+			<br>
+			<i class="fa fa-caret-down" style="font-size:36px"></i>		  
+				
+			
+			</p>
+          </div>
+          <div class="step" id="avery-history">
+            <p class="text step-text">
+			
+			<i class="fa fa-caret-up" style="font-size:36px"></i>		  
+				<br>
+			Avery however wasn't always the rebounder kind of guy. Actually his 2016-2017 6.1 RPG was a career high, near to double from his previous record of 2013-2014 season with 3.8 Rebounds per Game.
+				
+			</p>
+          </div>
+          <div class="step"></div>
+        </div>
+        <div data-uk-sticky="{top:96, boundary: true}" class="col-sm-8" id="chart">
+        </div>
+
+
+        <div class="col-sm-12 credit">
+			<p>--------------------End-------------------------</p>
+		</div>
+
+
+      </div>
+	 </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/scrollama/1.4.3/scrollama.min.js'></script>
+
+    <script>
+    var scroller = scrollama();
+
+    scroller
+      .setup({
+        offset: 0.53,
+        step: '.step',
+        debug: false,
+        container: 'container'
+      })
+      .onStepEnter(function(response) {
+        d3.select(response.element).dispatch('stepin')
+      })
+    </script>
+    <script src="js/chart.js"></script>
+</body>
+</html>
